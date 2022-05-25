@@ -9,9 +9,9 @@ const { ApolloServer } = require('apollo-server-express');
 const dotenv = require('dotenv');
 dotenv.config();
 
-const url = process.env.MONGODB_URL;
+//const url = process.env.MONGODB_URL;
 
-const connect = mongoose.connect(url,
+const connect = mongoose.connect("mongodb+srv://root:root@cluster0.v59zn.mongodb.net/hotelBooking?retryWrites=true&w=majority",
       {
             useNewUrlParser: true,
             useUnifiedTopology: true,
@@ -34,6 +34,6 @@ app.use(bodyParser.json());
 app.use('*', cors());
 server.applyMiddleware({ app });
 
-app.listen({ port: process.env.PORT }, () =>
-       console.log(`Server ready at http://localhost:${process.env.PORT}${server.graphqlPath}`)
+app.listen({ port: "5000" }, () =>
+       console.log(`Server ready at http://localhost:5000${server.graphqlPath}`)
       );
