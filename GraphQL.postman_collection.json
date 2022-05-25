@@ -1,0 +1,269 @@
+{
+	"info": {
+		"_postman_id": "e52608c5-8825-49c6-b0a2-012dfaa5418f",
+		"name": "GraphQL",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "addUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation{\r\n    addUser(\r\n        username: \"preethi\",\r\n        firstname: \"Preethi\",\r\n        lastname: \"R\",\r\n        password: \"test123\",\r\n        email: \"preethi@gmail.com\"\r\n    ){\r\n        username\r\n    \t\tpassword\r\n        token\r\n    }\r\n  \r\n}\r\n    \r\n    ",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "userLoggedIn",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation{\r\n  userLoggedIn(\r\n    username: \"preethi\",\r\n    password: \"test123\"\r\n  ){\r\n  \tusername\r\n    password\r\n    token\r\n    tokenExpriration\r\n }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "adminLoggedIn",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation{\r\n  adminLoggedIn(\r\n    username: \"Admin\"\r\n  ){\r\n  \tusername\r\n    token\r\n    tokenExpriration\r\n }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addListing",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation{\r\n\r\n  addListing(\r\n    listing_id: \"L002\",\r\n    listing_title: \"asdasdas asd asd assd asd asd \",\r\n    description: \"Lorem ipsum dolor sit amet,consectetur adipiscing elit, sed do eiusmod \",\r\n    street: \"13 xyz Street\",\r\n    city: \"Chennai\",\r\n    postal_code: \"600001\",\r\n    single_price: 1000,\r\n    double_price: 2000,\r\n    email: \"admin@gmail.com\",   \r\n    username: \"admin\",\r\n    created:\"2022-05-01\"\r\n    \r\n  ){\r\n    listing_id\r\n    listing_title\r\n    description\r\n    street\r\n    city\r\n    postal_code\r\n  \tsingle_price\r\n    double_price\r\n    single_count\r\n    double_count\r\n    email\r\n    username\r\n    type\r\n    created\r\n    token\r\n  }\r\n  \r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getListingCreatedByAdmin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query{\r\n  getListingCreatedByAdmin(\r\n    type:\"admin\"\r\n  ){\r\n    listing_id\r\n    listing_title\r\n    description\r\n    street\r\n    city\r\n    postal_code\r\n    single_price\r\n    double_price\r\n    single_count\r\n    double_count\r\n    email\r\n    username\r\n    type\r\n    created\r\n    token\r\n  }\r\n}\r\n",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addBooking",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation{\r\n  addBooking(\r\n    listing_id: \"L004\",\r\n    booking_id: \"B005\",\r\n    booking_date: \"05-01-2022\",\r\n    single_room: \"1\",\r\n     double_room: \"1\",\r\n    booking_start: \"05-01-2022\",\r\n    booking_end: \"05-05-2022\",\r\n    username: \"hmzkoc\"\r\n  ){\r\n    listing_id\r\n    booking_id\r\n    booking_date\r\n    single_room\r\n     double_room\r\n    booking_start\r\n    booking_end\r\n    username\r\n  }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getListingByName",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query{\r\n  getListingByCity(\r\n    city : \"Chennai\"\r\n  ){\r\n     listing_id\r\n    listing_title\r\n    description\r\n    street\r\n    city\r\n    postal_code\r\n    single_price\r\n    double_price\r\n    single_count\r\n    single_count\r\n    email\r\n    username\r\n    type\r\n    created\r\n  }\r\n  \r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getListingByCity",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation{\r\n    addUser(\r\n        username: \"kaviya\",\r\n        firstname: \"Kaviya\",\r\n        lastname: \"R\",\r\n        password: \"test123\",\r\n        email: \"kaviya@gmail.com\"\r\n    ){\r\n        username\r\n    \t\tpassword\r\n        token\r\n    }\r\n  \r\n}\r\n    \r\n    ",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "userLoggedInBooking",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query{\r\n  userLoggedInBooking(\r\n    username:\"kaviya\",\r\n    password:\"test123\"){\r\n  listing_id\r\n    booking_id\r\n    booking_date\r\n    booking_start\r\n    booking_end\r\n    username\r\n    \r\n  }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "adminLoggedInListing",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query{\r\n  adminLoggedInListing(\r\n    username:\"admin\"\r\n  ){\r\n\r\n  listing_id\r\n    booking_id\r\n    booking_date\r\n    single_room\r\n    double_room\r\n    booking_start\r\n    booking_end\r\n    username\r\n    \r\n  }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
